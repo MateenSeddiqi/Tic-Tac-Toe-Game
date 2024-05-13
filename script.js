@@ -8,23 +8,20 @@
 // textClick.addEventListener('click', changeText)
 
 
-let userMessage = document.getElementById('user-message');
-let remainText = document.getElementById('remaining-texts');
-let maxAllowedText = userMessage.maxLength; 
+let userInput = document.getElementById('user-input');
+let remainInput = document.getElementById('remaining-inputs');
+let maxAllowedText = userInput.maxLength; 
 
-function updateRemainingText(event){
-    let enteredText = event.target.value;
-    let enteredTextLength = enteredText.length;
-    let remainTextLength = maxAllowedText - enteredTextLength;
-    remainText.textContent = remainTextLength;
+function updateRemainingInput(){
+    let inputLength = userInput.value.length;
+    let remainInputLength = maxAllowedText - inputLength;
+    remainInput.textContent = remainInputLength;
 
-    // let textLength = userMessage.value.length;
-    // remainText.textContent = 70 - textLength;
-    // if(textLength > 70){
-    //     remainText.style.color ='red';
-    // }else{
-    //     remainText.style.color = 'black';
-    // }   
+    if(inputLength >=  50){
+        remainInput.style.color ='red';
+    }else{
+        remainInput.style.color = 'black';
+    }
 }
 
-userMessage.addEventListener('input', updateRemainingText);
+userInput.addEventListener('input', updateRemainingInput);
