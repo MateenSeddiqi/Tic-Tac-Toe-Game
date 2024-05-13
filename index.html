@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Click me</p>
+    <form action="#" method="get">
+        <label for="user-message">Enter your message</label>
+        <input type="text" id="user-message" name="user-message" maxlength="60">
+        <span id="text-count">
+            <span id="remaining-texts">60</span>/60
+        </span>
+    </form>
     <script src="script.js"></script>
 </body>
 </html>
