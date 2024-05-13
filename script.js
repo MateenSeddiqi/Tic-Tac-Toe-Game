@@ -7,3 +7,10 @@
 // }
 // textClick.addEventListener('click', changeText)
 
+
+let userMessage = document.getElementById('user-message');
+let remainText = document.getElementById('remaining-texts');
+
+function updateRemainingText(event){
+    
+}
