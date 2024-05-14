@@ -23,5 +23,4 @@ function updateRemainingInput(){
         remainInput.style.color = 'black';
     }
 }
-
 userInput.addEventListener('input', updateRemainingInput);
