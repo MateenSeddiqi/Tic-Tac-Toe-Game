@@ -2,7 +2,7 @@
 
 let userInput = document.getElementById('user-input');
 let remainInput = document.getElementById('remaining-inputs');
-let maxAllowedText = userInput.maxLength; 
+let maxAllowedText = userInput.maxLength;
 
 function updateRemainingInput(){
     let inputLength = userInput.value.length;
