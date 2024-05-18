@@ -7,8 +7,19 @@
     width: 100%;
 }
 .practice-info h3{
-    width: 100%;
-    height: 100%;
     margin-top: 0px;
+    padding-top: 1vh;
 }
 
+
+.input-count{
+    background-color: antiquewhite;
+    text-align: center;
+    margin-top: 1vh;
+    width: 100%;
+    height: 6vh;
+}
+
+.input-count form{
+    padding-top: 2vh;
+}
