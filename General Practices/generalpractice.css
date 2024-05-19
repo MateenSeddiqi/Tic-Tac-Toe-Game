@@ -24,8 +24,9 @@ body {
 /* Counting the input css code  */
 .input-count{
     background-color: antiquewhite;
-    text-align: center;
     margin-top: 1vh;
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 7vh;
     border-radius: 10px;
@@ -34,11 +35,14 @@ body {
 
 .input-count form{
     padding-top: 2vh;
+    display: flex;
+    flex-direction: row;
 }
 
 .input-count label{
     font-size: 2vh;
     font-weight: bold;
+    padding:0vh 3vh;
 }
 
 
