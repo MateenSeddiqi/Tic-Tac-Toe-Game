@@ -1,5 +1,5 @@
 body {
-    margin: 3rem;
+    margin:1rem 3rem;
     font-family: sans-serif;
     background-color:#fafafa;
   }
@@ -27,24 +27,33 @@ body {
     margin-top: 1vh;
     display: flex;
     flex-direction: row;
-    width: 100%;
     height: 7vh;
     border-radius: 10px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .input-count form{
-    padding-top: 2vh;
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  padding: 1vh 1vh;
 }
 
 .input-count label{
     font-size: 2vh;
     font-weight: bold;
-    padding:0vh 3vh;
+    padding: 0.5rem 1rem;
 }
 
+.input-count input{
+  padding-bottom: 2rem;
+  width: 50%;
+  height: 0.1rem;
+}
+.input-count span{
+  font-weight: bold;
+  padding: 0rem 0.2rem;
+}
 
 /* New CSS styles */
   
