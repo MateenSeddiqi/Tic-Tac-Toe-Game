@@ -46,3 +46,26 @@ function highlightLink(){
 }
 
 highlightButton.addEventListener('click', highlightLink);
+
+// JS code for displaying the data of user 
+
+const UserData =  {
+    name: 'Rahul',
+    age: 20,
+    email: 'rahul.com'
+};
+
+const userDataButton = document.querySelector('#user-data button');
+function displayUserData(){
+    const userDataOutput = document.getElementById('output-user-data');
+    userDataOutput.innerHTML = ' ';
+
+    for (const key in UserData){
+        const userDataList = document.createElement('li');
+        const outputText = key.toUpperCase() + ': ' + UserData[key];
+        userDataList.textContent = outputText;
+        userDataOutput.append(userDataList);
+        userDataOutput.style.textDecoration = 'none';
+    }
+}
+userDataButton.addEventListener('click', displayUserData);
