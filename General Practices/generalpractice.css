@@ -4,22 +4,24 @@ body {
     background-color:#fafafa;
   }
 
-
+/* nav section css code  */
 .practice-info{
-    justify-content: center;
-    text-align: center;
-    background-color: rgb(190, 216, 239);
-    margin-top: 0px;
-    height: 5vh;
-    width: 100%;
+  background-color: #f8d3a4;
+  /* background-color: #e8e8e8; */
+  border-radius: 1rem;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0px;
+  height: 3rem;
+  width: 100%;
 }
+
 .practice-info h3{
     margin-top: 0px;
     padding-top: 1vh;
     font-size: 2.5vh;
     font-weight: bold;
 }
-
 
 /* Counting the input css code  */
 .input-count{
@@ -55,7 +57,7 @@ body {
   padding: 0rem 0.2rem;
 }
 
-/* New CSS styles */
+/* Other sections CSS code */
   
   h1 {
     text-align: center;
