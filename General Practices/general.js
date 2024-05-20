@@ -32,5 +32,17 @@ function calculateSum(){
     outputResult.textContent = sumTotal;
     outputResult.style.display = 'block';
 }
-
 calculateSumButtonElement.addEventListener('click', calculateSum)
+
+
+
+// JS code for highLighting links in the paragraph 
+let highlightButton = document.querySelector('#highlight-links button');
+function highlightLink(){
+    const anchorElements = document.querySelectorAll('#highlight-links a');
+    for ( const anchorElement of anchorElements ){
+        anchorElement.classList.add('highlight');
+    }
+}
+
+highlightButton.addEventListener('click', highlightLink);
