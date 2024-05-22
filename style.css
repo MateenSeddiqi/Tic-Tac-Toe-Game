@@ -1,6 +1,9 @@
+/* Importing the google font family  */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 body{
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'sans-serif open sans-serif';
     color: rgb(44, 41, 44);
     background-color: rgb(247, 239, 247);
 }
@@ -35,5 +38,6 @@ body{
 }
 
 .btn-alt:hover{
-    background-color: rgb(250, 232, 255);;
+    background-color: rgb(230, 201, 252);
+    background-color: transparent;
 }
