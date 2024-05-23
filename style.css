@@ -85,6 +85,10 @@ body{
     display: none;
 }
 
+/* #input-error-msg{
+    color: red;
+} */
+
 @media (min-width: 48rem) {
     .model {
         left: calc(33% - 20px);
