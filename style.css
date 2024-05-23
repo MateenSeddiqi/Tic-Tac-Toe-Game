@@ -40,3 +40,44 @@ body{
     background-color: rgb(230, 201, 252);
     background-color: transparent;
 }
+
+#game-configuration{
+    width: 90%;
+    text-align: center;
+    max-width: 40rem;
+    margin: 3rem auto;
+}
+
+#game-configuration ol{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#game-configuration li {
+    margin: 1rem;
+    padding: 1rem;
+    width: 50%;
+    background-color: rgb(243, 227, 255);
+    border-radius: 4px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#game-configuration h2{
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+#game-configuration h3{
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: rgb(94, 4, 168);
+}
+
+#game-configuration p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(47, 4, 82);
+    margin: 0.5rem 0;
+}
