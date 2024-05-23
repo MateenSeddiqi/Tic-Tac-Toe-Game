@@ -85,6 +85,16 @@ body{
     display: none;
 }
 
+.error label{
+    color: rgb(136, 2, 2);     
+}
+
+.error input{
+    border-color: red;
+    color: red;
+    background-color: rgb(253, 219, 219);
+}
+
 /* #input-error-msg{
     color: red;
 } */

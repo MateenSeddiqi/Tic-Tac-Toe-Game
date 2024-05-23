@@ -21,6 +21,8 @@ function OpenPlayerConfig(){
 function ClosePayerConfig(){
     playerConfigOverlay.style.display = 'none';
     backdropElement.style.display = 'none';
+    formElement.firstElementChild.classList.remove('error');
+    errorOutputElement.textContent = '';
 }
 
 user1_adding_btn.addEventListener('click', OpenPlayerConfig);
@@ -38,6 +40,7 @@ function savePlayerConfig(event){
     const formData = new FormData(event.target);
     const playerName = formData.get('playerName').trim(); // term(); is use to remove the extra spaces like '  ' will consider as '' and '  M ' as 'M'
     if (!playerName){ // we can add the condition like this to payerName === '' 
+        event.target.firstElementChild.classList.add('error');
         errorOutputElement.textContent = 'Please enter a valid player name';
         return;
     }
