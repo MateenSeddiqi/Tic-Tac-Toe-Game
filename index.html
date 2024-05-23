@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="overlap.css">
 </head>
 <body>
     <header id="main-header">
@@ -49,9 +48,10 @@
         </ol>
         <button class="btn">Start New Game</button>
     </section>
-    <section class="active-game">
-        <article>
-            <h3> You Win <span id="winner-player">Winner name </span></h3>
+
+    <section id="active-game">
+        <article id="game-over">
+            <h2> You Win <span id="winner-player">Player Name </span></h2>
             <p>Click "Start New Game" above to start the game</p>
         </article>
         <p>Its your turn <span id="active-payer-name">Player Name </span>!</p>
