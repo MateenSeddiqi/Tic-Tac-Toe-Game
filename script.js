@@ -4,6 +4,7 @@ const user1_adding_btn = document.getElementById('edit-player-1-btn');
 const user2_adding_btn = document.getElementById('edit-player-2-btn');
 const formElement= document.querySelector('form');
 const errorOutputElement= document.getElementById('config-errors');
+let editedPlayer = 0;
 
 const playerConfigOverlay = document.getElementById('config-overlay');
 const backdropElement = document.getElementById('backdrop');
@@ -13,9 +14,12 @@ const overlay_cancel = document.getElementById('cancel-config-btn');
 
 // JS code for opening and closing the config overlay for adding the user name
 //////////////////////////////////////////////////////////////// 
-function OpenPlayerConfig(){
+function OpenPlayerConfig(event){
+    editedPlayer = +event.target.dataset.playerId; // +'1' = > 1
+    console.log('editedPlayer');
     playerConfigOverlay.style.display = 'block';
     backdropElement.style.display = 'block';
+
 }
 
 function ClosePayerConfig(){
@@ -36,7 +40,7 @@ backdropElement.addEventListener('click', ClosePayerConfig);
 ///////////////////////////////////////////////////////////////////
 
 function savePlayerConfig(event){
-     event.preventDefault();
+    event.preventDefault();
     const formData = new FormData(event.target);
     const playerName = formData.get('playerName').trim(); // term(); is use to remove the extra spaces like '  ' will consider as '' and '  M ' as 'M'
     if (!playerName){ // we can add the condition like this to payerName === '' 
@@ -44,7 +48,7 @@ function savePlayerConfig(event){
         errorOutputElement.textContent = 'Please enter a valid player name';
         return;
     }
-    console.log(playerName);
+    const dataPlayerDataElement = document.getElementById('player-'+ editedPlayer + '-data');
+    dataPlayerDataElement.children[1].textContent = playerName;
 }
-
 formElement.addEventListener('submit', savePlayerConfig);
