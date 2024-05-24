@@ -16,10 +16,9 @@ const overlay_cancel = document.getElementById('cancel-config-btn');
 //////////////////////////////////////////////////////////////// 
 function OpenPlayerConfig(event){
     editedPlayer = +event.target.dataset.playerId; // +'1' = > 1
-    console.log('editedPlayer');
+    console.log('ID '+editedPlayer);
     playerConfigOverlay.style.display = 'block';
     backdropElement.style.display = 'block';
-
 }
 
 function ClosePayerConfig(){
@@ -49,6 +48,7 @@ function savePlayerConfig(event){
         return;
     }
     const dataPlayerDataElement = document.getElementById('player-'+ editedPlayer + '-data');
+    console.log(dataPlayerDataElement);
     dataPlayerDataElement.children[1].textContent = playerName;
 }
 formElement.addEventListener('submit', savePlayerConfig);
