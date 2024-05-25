@@ -15,7 +15,7 @@ const overlay_cancel = document.getElementById('cancel-config-btn');
 // JS code for opening and closing the config overlay for adding the user name
 //////////////////////////////////////////////////////////////// 
 function OpenPlayerConfig(event){
-    editedPlayer = +event.target.dataset.playerId; // +'1' = > 1
+    editedPlayer = +event.target.dataset.playerid; // +'1' = > 1
     console.log('ID '+editedPlayer);
     playerConfigOverlay.style.display = 'block';
     backdropElement.style.display = 'block';
