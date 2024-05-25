@@ -24,6 +24,8 @@ const players = [ // this code is use to store the name and symbol of the player
 
 // start game variables
 const startNewGameBtnElement = document.getElementById('start-game-btn');
+const gameAreaElement = document.getElementById('active-game');
+
 
 // JS code for opening and closing the config overlay for adding the user name
 //////////////////////////////////////////////////////////////// 
@@ -74,5 +76,13 @@ function savePlayerConfig(event){
 formElement.addEventListener('submit', savePlayerConfig);
 
 
-// Start Game section
-startNewGameBtnElement.addEventListener('click');
+// Start Game section 
+function startNewGame(){
+    if(players[0].name === '' || players[1].name === ''){
+        // errorOutputElement.textContent = 'Please enter a valid player name';
+        alert('Please set player names for both players');
+        return;
+    }
+    gameAreaElement.style.display = 'block';
+}
+startNewGameBtnElement.addEventListener('click', startNewGame);
