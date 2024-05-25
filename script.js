@@ -22,6 +22,9 @@ const players = [ // this code is use to store the name and symbol of the player
 ];
 
 
+// start game variables
+const startNewGameBtnElement = document.getElementById('start-game-btn');
+
 // JS code for opening and closing the config overlay for adding the user name
 //////////////////////////////////////////////////////////////// 
 function OpenPlayerConfig(event){
@@ -69,3 +72,7 @@ function savePlayerConfig(event){
     ClosePayerConfig();
 }
 formElement.addEventListener('submit', savePlayerConfig);
+
+
+// Start Game section
+startNewGameBtnElement.addEventListener('click');
