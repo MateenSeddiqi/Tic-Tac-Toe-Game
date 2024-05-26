@@ -10,7 +10,8 @@ const backdropElement = document.getElementById('backdrop');
 const overlay_cancel = document.getElementById('cancel-config-btn'); 
 
 let editedPlayer = 0;
-const players = [ // this code is use to store the name and symbol of the player
+let activePlayer = 0;
+const players = [         // this code is use to store the name and symbol of the player
     {
         name: '',
         Symbol: 'X'
@@ -25,7 +26,7 @@ const players = [ // this code is use to store the name and symbol of the player
 // start game variables
 const startNewGameBtnElement = document.getElementById('start-game-btn');
 const gameAreaElement = document.getElementById('active-game');
-
+const gameFieldElements = document.querySelectorAll('#game-board li'); // For both querySelector and querySelectorAll we should add the html element
 
 // JS code for opening and closing the config overlay for adding the user name
 //////////////////////////////////////////////////////////////// 
@@ -43,7 +44,7 @@ function ClosePayerConfig(){
     playerNameInput.value = '';
 
 }
-// Add EvntListener for both player name btn and closing the overlay and backdrop
+// Add EventListener for both player name btn and closing the overlay and backdrop
 user1_adding_btn.addEventListener('click', OpenPlayerConfig);
 user2_adding_btn.addEventListener('click', OpenPlayerConfig);
 
@@ -66,11 +67,13 @@ function savePlayerConfig(event){
     const dataPlayerDataElement = document.getElementById('player-'+ editedPlayer + '-data');
     dataPlayerDataElement.children[1].textContent = enteredPlayerName;
 
-    if (editedPlayer === 1 ){ // This if first check the player ID and store it in player array 
-        players[0]=enteredPlayerName;
-    }else {
-        players[1]=enteredPlayerName;
-    }
+    // if (editedPlayer === 1 ){            // This if first check the player ID and store it in player array 
+    //     players[0]=enteredPlayerName;
+    // }else {
+    //     players[1]=enteredPlayerName;
+    // }
+
+    players[editedPlayer - 1].name = enteredPlayerName;  //This code store the name of both players in the array
     ClosePayerConfig();
 }
 formElement.addEventListener('submit', savePlayerConfig);
@@ -86,3 +89,11 @@ function startNewGame(){
     gameAreaElement.style.display = 'block';
 }
 startNewGameBtnElement.addEventListener('click', startNewGame);
+
+function selectGameField(event){
+    event.target.textContent = players[activePlayer].Symbol;
+}
+
+for (const gameFieldElement of gameFieldElements){ // This for eventlistener create add eventlistener for all game fields
+    gameFieldElement.addEventListener('click', selectGameField);
+}
