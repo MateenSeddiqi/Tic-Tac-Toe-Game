@@ -16,6 +16,7 @@ const gameData = [
 
 let editedPlayer = 0;
 let activePlayer = 0;
+let currentRound = 1;
 const players = [         // this code is use to store the name and symbol of the player
     {
         name: '',
@@ -126,7 +127,10 @@ function selectGameField(event){
     selectedField.textContent = players[activePlayer].Symbol;
     selectedField.classList.add('disabled');
     gameData[selectedRow][selectedColumn] = activePlayer + 1;
-    console.log(gameData);
+    const winnerId = checkForGameOver();
+    console.log(winnerId);
+
+    currentRound++
     SwitchPlayer();
 }
 
@@ -135,3 +139,51 @@ function selectGameField(event){
 // }
 
 gameBoardElement.addEventListener('click', selectGameField)
+
+function checkForGameOver() {
+    // Checking the row for equality
+    for (let i = 0; i < 3; i++) {
+        if (
+            gameData[i][0] > 0 && 
+            gameData[i][0] === gameData[i][1] && 
+            gameData[i][1] === gameData[i][2] 
+        ) {
+            return gameData [i][0];
+        }
+    }
+
+    // Checking the rows for equality
+    for (let i = 0; i < 3; i++) {
+        if (
+            gameData[0][i] > 0 && 
+            gameData[0][i] === gameData[1][i] && 
+            gameData[0][i] === gameData[2][i] 
+        ) {
+            return gameData [0][i];
+        }
+    }
+
+    // Diagonal: Top let to bottom right 
+    if (
+        gameData[0][0] > 0 && 
+        gameData[0][0] === gameData[1][1] && 
+        gameData[0][0] === gameData[2][2]
+    ){
+        return gameData[0][0];
+    }
+
+    // Diagonal: bottom let to top right 
+    if (
+        gameData[2][0] > 0 && 
+        gameData[2][0] === gameData[1][1] && 
+        gameData[1][1] === gameData[0][2]
+    ){
+        return gameData[2][0];
+    }
+    // Checking for draw
+    if (currentRound === 9){
+        return -1;
+    }
+
+    return 0;
+}
