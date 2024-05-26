@@ -26,6 +26,7 @@ const players = [         // this code is use to store the name and symbol of th
 // start game variables
 const startNewGameBtnElement = document.getElementById('start-game-btn');
 const gameAreaElement = document.getElementById('active-game');
+const activePlayerNameElement = document.getElementById('active-payer-name');
 // const gameFieldElements = document.querySelectorAll('#game-board li'); // For both querySelector and querySelectorAll we should add the html element
 const gameBoardElement = document.getElementById('game-board');
 
@@ -88,6 +89,7 @@ function startNewGame(){
         return;
     }
     gameAreaElement.style.display = 'block';
+    activePlayerNameElement.textContent = players[activePlayer].name;
 }
 startNewGameBtnElement.addEventListener('click', startNewGame);
 
@@ -97,6 +99,7 @@ function SwitchPlayer(){
     } else{
         activePlayer = 0;
     }
+    activePlayerNameElement.textContent = players[activePlayer].name;
 }
 
 
@@ -104,7 +107,7 @@ function selectGameField(event){
     if (event.target.tagName !== 'LI'){
         return;
     }
-    
+
     event.target.textContent = players[activePlayer].Symbol;
     event.target.classList.add('disabled');
     SwitchPlayer();
