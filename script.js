@@ -26,7 +26,8 @@ const players = [         // this code is use to store the name and symbol of th
 // start game variables
 const startNewGameBtnElement = document.getElementById('start-game-btn');
 const gameAreaElement = document.getElementById('active-game');
-const gameFieldElements = document.querySelectorAll('#game-board li'); // For both querySelector and querySelectorAll we should add the html element
+// const gameFieldElements = document.querySelectorAll('#game-board li'); // For both querySelector and querySelectorAll we should add the html element
+const gameBoardElement = document.getElementById('game-board');
 
 // JS code for opening and closing the config overlay for adding the user name
 //////////////////////////////////////////////////////////////// 
@@ -90,10 +91,27 @@ function startNewGame(){
 }
 startNewGameBtnElement.addEventListener('click', startNewGame);
 
-function selectGameField(event){
-    event.target.textContent = players[activePlayer].Symbol;
+function SwitchPlayer(){
+    if (activePlayer === 0){
+        activePlayer = 1;
+    } else{
+        activePlayer = 0;
+    }
 }
 
-for (const gameFieldElement of gameFieldElements){ // This for eventlistener create add eventlistener for all game fields
-    gameFieldElement.addEventListener('click', selectGameField);
+
+function selectGameField(event){
+    if (event.target.tagName !== 'LI'){
+        return;
+    }
+    
+    event.target.textContent = players[activePlayer].Symbol;
+    event.target.classList.add('disabled');
+    SwitchPlayer();
 }
+
+// for (const gameFieldElement of gameFieldElements){ // This for eventlistener create add eventlistener for all game fields
+//     gameFieldElement.addEventListener('click', selectGameField);
+// }
+
+gameBoardElement.addEventListener('click', selectGameField)
