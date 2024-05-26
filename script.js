@@ -8,6 +8,11 @@ const playerNameInput = document.getElementById('playername');
 const playerConfigOverlay = document.getElementById('config-overlay');
 const backdropElement = document.getElementById('backdrop');
 const overlay_cancel = document.getElementById('cancel-config-btn'); 
+const gameData = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+];
 
 let editedPlayer = 0;
 let activePlayer = 0;
@@ -24,6 +29,7 @@ const players = [         // this code is use to store the name and symbol of th
 
 
 // start game variables
+//////////////////////
 const startNewGameBtnElement = document.getElementById('start-game-btn');
 const gameAreaElement = document.getElementById('active-game');
 const activePlayerNameElement = document.getElementById('active-payer-name');
@@ -108,8 +114,19 @@ function selectGameField(event){
         return;
     }
 
-    event.target.textContent = players[activePlayer].Symbol;
-    event.target.classList.add('disabled');
+    const selectedField = event.target;
+    const selectedColumn = selectedField.dataset.col - 1;
+    const selectedRow = selectedField.dataset.row - 1;
+
+    if(gameData[selectedRow][selectedColumn] > 0){
+        alert(' Please select an empty field');
+        return
+    }
+
+    selectedField.textContent = players[activePlayer].Symbol;
+    selectedField.classList.add('disabled');
+    gameData[selectedRow][selectedColumn] = activePlayer + 1;
+    console.log(gameData);
     SwitchPlayer();
 }
 
