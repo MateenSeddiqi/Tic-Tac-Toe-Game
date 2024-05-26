@@ -17,6 +17,7 @@ const gameData = [
 let editedPlayer = 0;
 let activePlayer = 0;
 let currentRound = 1;
+let gameIsOver = false;
 const players = [         // this code is use to store the name and symbol of the player
     {
         name: '',
@@ -36,6 +37,7 @@ const gameAreaElement = document.getElementById('active-game');
 const activePlayerNameElement = document.getElementById('active-payer-name');
 // const gameFieldElements = document.querySelectorAll('#game-board li'); // For both querySelector and querySelectorAll we should add the html element
 const gameBoardElement = document.getElementById('game-board');
+const gameOverElement = document.getElementById('game-over');
 
 // JS code for opening and closing the config overlay for adding the user name
 //////////////////////////////////////////////////////////////// 
@@ -89,14 +91,36 @@ formElement.addEventListener('submit', savePlayerConfig);
 
 
 // Start Game section 
+
+function restGameStatus() {
+    gameIsOver= false;
+    activePlayer = 0;
+    currentRound = 1;
+    gameOverElement.firstElementChild.innerHTML = 'You Win <span id="winner-player">Player Name </span>';
+    gameOverElement.style.display = 'none';
+
+    let gameBoardIndex = 0;
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            gameData[i][j] = 0;
+            const gameBoardItemElement = gameBoardElement.children[gameBoardIndex];
+            gameBoardItemElement.textContent = '';
+            gameBoardItemElement.classList.remove('disabled');
+            gameBoardIndex++;
+        }
+    }
+}
+
 function startNewGame(){
     if(players[0].name === '' || players[1].name === ''){
         // errorOutputElement.textContent = 'Please enter a valid player name';
         alert('Please set player names for both players');
         return;
     }
-    gameAreaElement.style.display = 'block';
+
+    restGameStatus();
     activePlayerNameElement.textContent = players[activePlayer].name;
+    gameAreaElement.style.display = 'block';
 }
 startNewGameBtnElement.addEventListener('click', startNewGame);
 
@@ -111,7 +135,7 @@ function SwitchPlayer(){
 
 
 function selectGameField(event){
-    if (event.target.tagName !== 'LI'){
+    if (event.target.tagName !== 'LI' || gameIsOver === true ){
         return;
     }
 
@@ -120,16 +144,18 @@ function selectGameField(event){
     const selectedRow = selectedField.dataset.row - 1;
 
     if(gameData[selectedRow][selectedColumn] > 0){
-        alert(' Please select an empty field');
+        alert(' Please select an empty field');      
         return
     }
 
     selectedField.textContent = players[activePlayer].Symbol;
     selectedField.classList.add('disabled');
     gameData[selectedRow][selectedColumn] = activePlayer + 1;
+    
     const winnerId = checkForGameOver();
-    console.log(winnerId);
-
+    if (winnerId !==0){
+        endGame(winnerId);
+    }
     currentRound++
     SwitchPlayer();
 }
@@ -186,4 +212,16 @@ function checkForGameOver() {
     }
 
     return 0;
+}
+
+function endGame(winnerId){
+    gameIsOver= true;
+    gameOverElement.style.display = 'block';
+    if (winnerId > 0){
+        const winnerName = players[winnerId - 1].name;
+        gameOverElement.firstElementChild.firstElementChild.textContent = winnerName; 
+    }else{
+        gameOverElement.firstElementChild.textContent = 'It\'s a draw';
+    }
+    
 }
