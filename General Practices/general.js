@@ -1,4 +1,5 @@
 // JS Code for counting number of remaining characters
+/////////////////////////////////////////////////////
 let userInput = document.getElementById('user-input');
 let remainInput = document.getElementById('remaining-inputs');
 let maxAllowedText = userInput.maxLength;
@@ -19,6 +20,7 @@ userInput.addEventListener('input', updateRemainingInput);
 
 
 // JS code for calculating the sum of entered number by user 
+///////////////////////////////////////////////
 let calculateSumButtonElement = document.querySelector('#calculator button');
 
 function calculateSum(){
@@ -37,6 +39,7 @@ calculateSumButtonElement.addEventListener('click', calculateSum)
 
 
 // JS code for highLighting links in the paragraph 
+/////////////////////////////////////////////
 let highlightButton = document.querySelector('#highlight-links button');
 function highlightLink(){
     const anchorElements = document.querySelectorAll('#highlight-links a');
@@ -44,11 +47,12 @@ function highlightLink(){
         anchorElement.classList.add('highlight');
     }
 }
-
 highlightButton.addEventListener('click', highlightLink);
 
-// JS code for displaying the data of user 
 
+
+// JS code for displaying the data of user 
+/////////////////////////////////////
 const UserData =  {
     name: 'Rahul',
     age: 20,
