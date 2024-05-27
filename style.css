@@ -3,7 +3,6 @@
 
 /* Header and some General CSS code */
 /* ===========================*/
-/* =========================*/
 body{
     margin: 0;
     font-family: 'sans-serif open sans-serif';
@@ -46,7 +45,6 @@ body{
 
 /* Overlay or model section CSS code  */
 /* ==============================*/
-/* =========================*/
 .model {
     position: fixed;
     top: 20%;
@@ -108,7 +106,6 @@ body{
 
 /* Game configurations section CSS code  */
 /* ================================*/
-/* ===========================*/
 #game-configuration{
     width: 90%;
     text-align: center;
@@ -152,8 +149,6 @@ body{
 
 /* Active or Game section CSS Code  */
 /* ==============================*/
-/* ==========================*/
-
 #active-game{
     text-align: center;
     margin: 2rem 0 5rem 0;
